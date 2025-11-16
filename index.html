@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,10 @@
             line-height: 1.6;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+        }
+        
+        [dir="rtl"] {
+            direction: rtl;
         }
         
         .section {
@@ -50,11 +54,20 @@
             color: #4a5568;
             font-size: 1.2em;
             margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        [dir="rtl"] p {
+            text-align: center;
         }
         
         .features {
             text-align: left;
             margin: 30px 0;
+        }
+        
+        [dir="rtl"] .features {
+            text-align: right;
         }
         
         .feature {
@@ -64,11 +77,31 @@
             padding: 15px;
             background: #f7fafc;
             border-radius: 10px;
+            flex-direction: row;
         }
         
         .feature-icon {
             font-size: 24px;
             margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        [dir="rtl"] .feature-icon {
+            margin-right: 15px;
+            margin-left: 0;
+        }
+        
+        .feature > div {
+            text-align: left;
+            flex: 1;
+        }
+        
+        [dir="rtl"] .feature > div {
+            text-align: right;
+        }
+        
+        [dir="rtl"] .feature {
+            flex-direction: row-reverse;
         }
         
         .cta {
@@ -98,6 +131,11 @@
             margin-top: 40px;
             color: #718096;
             font-size: 0.9em;
+            text-align: center;
+        }
+        
+        [dir="rtl"] footer {
+            text-align: center;
         }
         
         /* Scroll Down Indicator */
@@ -247,62 +285,94 @@
                 transform: translateY(5px);
             }
         }
+        
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+        
+        .lang-toggle:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle" onclick="toggleLanguage()">
+        <span id="lang-text">🇮🇱 עברית</span>
+    </div>
+
     <!-- Main Section -->
     <div class="section">
         <div class="container">
             <div class="icon">🔍</div>
-            <h1>Kosher Scanner</h1>
-            <p>Instant barcode verification for kosher products</p>
+            <h1 data-en="Kosher Scanner" data-he="סורק כשרות">Kosher Scanner</h1>
+            <p data-en="Instant barcode verification for kosher products" data-he="אימות מיידי של ברקוד למוצרי כשרות">Instant barcode verification for kosher products</p>
             
             <div class="features">
                 <div class="feature">
                     <span class="feature-icon">📱</span>
                     <div>
-                        <strong>Simple & Fast</strong><br>
-                        Just send a barcode photo via WhatsApp
+                        <strong data-en="Simple & Fast" data-he="פשוט ומהיר">Simple & Fast</strong><br>
+                        <span data-en="Just send a barcode photo via WhatsApp" data-he="פשוט שלחו תמונת ברקוד דרך WhatsApp">Just send a barcode photo via WhatsApp</span>
                     </div>
                 </div>
                 
                 <div class="feature">
                     <span class="feature-icon">✅</span>
                     <div>
-                        <strong>Instant Results</strong><br>
-                        Get kosher certification status immediately
+                        <strong data-en="Instant Results" data-he="תוצאות מיידיות">Instant Results</strong><br>
+                        <span data-en="Get kosher certification status immediately" data-he="קבלו סטטוס כשרות מיד">Get kosher certification status immediately</span>
                     </div>
                 </div>
                 
                 <div class="feature">
                     <span class="feature-icon">🔒</span>
                     <div>
-                        <strong>Reliable Sources</strong><br>
-                        Information from trusted kosher databases
+                        <strong data-en="Reliable Sources" data-he="מקורות מהימנים">Reliable Sources</strong><br>
+                        <span data-en="Information from trusted kosher databases" data-he="מידע ממאגרי כשרות מהימנים">Information from trusted kosher databases</span>
                     </div>
                 </div>
                 
                 <div class="feature">
                     <span class="feature-icon">🆓</span>
                     <div>
-                        <strong>Free Service</strong><br>
-                        No registration or fees required
+                        <strong data-en="Free Service" data-he="שירות חינמי">Free Service</strong><br>
+                        <span data-en="No registration or fees required" data-he="ללא הרשמה או תשלום">No registration or fees required</span>
                     </div>
                 </div>
             </div>
             
-            <p>Send a message to start verifying products:</p>
-            <a href="https://wa.me/972556815085" class="cta">Start on WhatsApp</a>
+            <p data-en="Send a message to start verifying products:" data-he="שלחו הודעה כדי להתחיל לבדוק מוצרים:">Send a message to start verifying products:</p>
+            <a href="https://wa.me/972556815085" class="cta" data-en="Start on WhatsApp" data-he="התחילו ב-WhatsApp">Start on WhatsApp</a>
             
             <footer>
-                <p>Powered by <a href="https://www.zekasher.com" target="_blank" class="whatsapp-link">Zekasher</a> database</p>
-                <p>Open source project • <a href="https://github.com/ItamarOn/GOK-bot" target="_blank">View on GitHub</a></p>
+                <p>
+                    <span data-en="Powered by" data-he="מופעל על ידי">Powered by</span>
+                    <a href="https://www.zekasher.com" target="_blank" class="whatsapp-link">Zekasher</a>
+                    <span data-en="database" data-he="מאגר מידע">database</span>
+                </p>
+                <p>
+                    <span data-en="Open source project •" data-he="פרויקט קוד פתוח •">Open source project •</span>
+                    <a href="https://github.com/ItamarOn/GOK-bot" target="_blank" data-en="View on GitHub" data-he="צפו ב-GitHub">View on GitHub</a>
+                </p>
             </footer>
         </div>
         
         <!-- Scroll Down Indicator -->
         <div class="scroll-indicator" onclick="document.querySelector('.example-section').scrollIntoView({behavior: 'smooth'})">
-            <div class="scroll-text">Scroll down to see example</div>
+            <div class="scroll-text" data-en="Scroll down to see example" data-he="גללו למטה לראות דוגמה">Scroll down to see example</div>
             <div class="scroll-arrow">⬇</div>
         </div>
     </div>
@@ -310,16 +380,65 @@
     <!-- Example Section -->
     <div class="example-section">
         <div class="example-container">
-            <h2 class="example-title">See It In Action</h2>
-            <p class="example-subtitle">Simply send a barcode photo and get instant kosher certification</p>
+            <h2 class="example-title" data-en="See It In Action" data-he="ראו את זה בפעולה">See It In Action</h2>
+            <p class="example-subtitle" data-en="Simply send a barcode photo and get instant kosher certification" data-he="פשוט שלחו תמונת ברקוד וקבלו אישור כשרות מיידי">Simply send a barcode photo and get instant kosher certification</p>
             <div class="example-image-wrapper">
-                <img src="example.jpg" alt="Kosher Scanner WhatsApp Demo - Send barcode and receive instant kosher verification" class="example-image">
+                <img src="example.jpg" alt="Kosher Scanner WhatsApp Demo" class="example-image">
                 <a href="#" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
-                    <div class="back-to-top-text">Scroll back to top</div>
+                    <div class="back-to-top-text" data-en="Scroll back to top" data-he="גללו חזרה למעלה">Scroll back to top</div>
                     <div class="back-to-top-arrow">⬆</div>
                 </a>
             </div>
         </div>
     </div>
+
+    <script>
+        let currentLang = 'en';
+
+        // Detect user's country on page load
+        async function detectCountry() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                
+                // If user is from Israel, switch to Hebrew
+                if (data.country_code === 'IL') {
+                    currentLang = 'he';
+                    applyLanguage('he');
+                }
+            } catch (error) {
+                console.log('Could not detect location, defaulting to English');
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'he' : 'en';
+            applyLanguage(currentLang);
+        }
+
+        function applyLanguage(lang) {
+            const html = document.documentElement;
+            const body = document.body;
+            const langText = document.getElementById('lang-text');
+
+            if (lang === 'he') {
+                html.setAttribute('lang', 'he');
+                body.setAttribute('dir', 'rtl');
+                langText.textContent = '🇺🇸 English';
+            } else {
+                html.setAttribute('lang', 'en');
+                body.setAttribute('dir', 'ltr');
+                langText.textContent = '🇮🇱 עברית';
+            }
+
+            // Update all text elements
+            document.querySelectorAll('[data-en][data-he]').forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+        }
+
+        // Run detection on page load
+        detectCountry();
+    </script>
 </body>
 </html>
