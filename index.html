@@ -16,6 +16,10 @@
             line-height: 1.6;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+        }
+        
+        .section {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -95,55 +99,154 @@
             color: #718096;
             font-size: 0.9em;
         }
+        
+        /* Scroll Down Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-text {
+            color: white;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .scroll-arrow {
+            font-size: 30px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        
+        /* Example Section */
+        .example-section {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            padding: 60px 20px;
+        }
+        
+        .example-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .example-title {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .example-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 5px solid white;
+        }
+        
+        .back-to-top {
+            margin-top: 40px;
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 12px 30px;
+            border: 2px solid white;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background: white;
+            color: #667eea;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="icon">🔍</div>
-        <h1>Kosher Scanner</h1>
-        <p>Instant barcode verification for kosher products</p>
-        
-        <div class="features">
-            <div class="feature">
-                <span class="feature-icon">📱</span>
-                <div>
-                    <strong>Simple & Fast</strong><br>
-                    Just send a barcode photo via WhatsApp
+    <!-- Main Section -->
+    <div class="section">
+        <div class="container">
+            <div class="icon">🔍</div>
+            <h1>Kosher Scanner</h1>
+            <p>Instant barcode verification for kosher products</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">📱</span>
+                    <div>
+                        <strong>Simple & Fast</strong><br>
+                        Just send a barcode photo via WhatsApp
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <span class="feature-icon">✅</span>
+                    <div>
+                        <strong>Instant Results</strong><br>
+                        Get kosher certification status immediately
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <span class="feature-icon">🔒</span>
+                    <div>
+                        <strong>Reliable Sources</strong><br>
+                        Information from trusted kosher databases
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <span class="feature-icon">🆓</span>
+                    <div>
+                        <strong>Free Service</strong><br>
+                        No registration or fees required
+                    </div>
                 </div>
             </div>
             
-            <div class="feature">
-                <span class="feature-icon">✅</span>
-                <div>
-                    <strong>Instant Results</strong><br>
-                    Get kosher certification status immediately
-                </div>
-            </div>
+            <p>Send a message to start verifying products:</p>
+            <a href="https://wa.me/972556815085" class="cta">Start on WhatsApp</a>
             
-            <div class="feature">
-                <span class="feature-icon">🔒</span>
-                <div>
-                    <strong>Reliable Sources</strong><br>
-                    Information from trusted kosher databases
-                </div>
-            </div>
-            
-            <div class="feature">
-                <span class="feature-icon">🆓</span>
-                <div>
-                    <strong>Free Service</strong><br>
-                    No registration or fees required
-                </div>
-            </div>
+            <footer>
+                <p>Powered by <a href="https://www.zekasher.com" target="_blank" class="whatsapp-link">Zekasher</a> database</p>
+                <p>Open source project • <a href="https://github.com/ItamarOn/GOK-bot" target="_blank">View on GitHub</a></p>
+            </footer>
         </div>
         
-        <p>Send a message to start verifying products:</p>
-        <a href="https://wa.me/972556815085" class="cta">Start on WhatsApp</a>
-        
-        <footer>
-            <p>Powered by <a href="https://zekasher.com" target="_blank" class="whatsapp-link">Zekasher</a> database</p>
-            <p>Open source project • <a href="https://github.com/ItamarOn/GOK-bot" target="_blank">View on GitHub</a></p>
-        </footer>
+        <!-- Scroll Down Indicator -->
+        <div class="scroll-indicator" onclick="document.querySelector('.example-section').scrollIntoView({behavior: 'smooth'})">
+            <div class="scroll-text">Scroll down to see example</div>
+            <div class="scroll-arrow">⬇</div>
+        </div>
+    </div>
+    
+    <!-- Example Section -->
+    <div class="example-section">
+        <div class="example-container">
+            <h2 class="example-title">See It In Action</h2>
+            <img src="example.jpg" alt="Kosher Scanner Demo" class="example-image">
+            <a href="#" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">↑ Back to Top</a>
+        </div>
     </div>
 </body>
 </html>
