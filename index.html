@@ -169,6 +169,12 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+        }
+        
+        .example-image-wrapper {
+            position: relative;
+            display: inline-block;
         }
         
         .example-title {
@@ -199,11 +205,14 @@
         }
         
         .back-to-top {
-            margin-top: 40px;
-            display: inline-block;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             text-decoration: none;
             cursor: pointer;
             text-align: center;
+            z-index: 10;
         }
         
         .back-to-top-text {
@@ -303,11 +312,13 @@
         <div class="example-container">
             <h2 class="example-title">See It In Action</h2>
             <p class="example-subtitle">Simply send a barcode photo and get instant kosher certification</p>
-            <img src="example.jpg" alt="Kosher Scanner WhatsApp Demo - Send barcode and receive instant kosher verification" class="example-image">
-            <a href="#" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
-                <div class="back-to-top-text">Scroll back to top</div>
-                <div class="back-to-top-arrow">⬆</div>
-            </a>
+            <div class="example-image-wrapper">
+                <img src="example.jpg" alt="Kosher Scanner WhatsApp Demo - Send barcode and receive instant kosher verification" class="example-image">
+                <a href="#" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                    <div class="back-to-top-text">Scroll back to top</div>
+                    <div class="back-to-top-arrow">⬆</div>
+                </a>
+            </div>
         </div>
     </div>
 </body>
