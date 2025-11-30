@@ -22,6 +22,39 @@
             direction: rtl;
         }
         
+        /* Privacy Policy Button */
+        .privacy-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .privacy-button:hover {
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .privacy-button {
+                font-size: 12px;
+                padding: 8px 16px;
+                top: 15px;
+                left: 15px;
+            }
+        }
+        
         .section {
             min-height: 100vh;
             display: flex;
@@ -311,6 +344,9 @@
     </style>
 </head>
 <body>
+    <!-- Privacy Policy Button -->
+    <a href="privacy-policy.html" class="privacy-button">Privacy Policy</a>
+
     <!-- Language Toggle -->
     <div class="lang-toggle" onclick="toggleLanguage()">
         <span id="lang-text">🇮🇱 עברית</span>
@@ -352,7 +388,7 @@
                     <span class="feature-icon">🆓</span>
                     <div>
                         <strong data-en="Free Service" data-he="שירות חינמי">Free Service</strong><br>
-                        <span data-en="No registration or fees required" data-he="ללא הרשמה או תשלום">No registration or fees required</span>
+                        <span data-en="No registration or fees required" data-he="לללא הרשמה או תשלום">No registration or fees required</span>
                     </div>
                 </div>
             </div>
